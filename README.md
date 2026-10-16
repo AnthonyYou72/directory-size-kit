@@ -25,3 +25,10 @@ The trade-off is that a symlinked-in dependency or external file does not contri
 ## The edge you will hit
 
 A symlink pointing at an ancestor directory (common in node_modules or build output that links back to the project root) is the exact case that breaks a naive recursive walker. Because `dirent.isSymbolicLink()` is checked before any recursion decision is made, such links are skipped and the walk completes in finite time.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
