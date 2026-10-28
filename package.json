@@ -1,6 +1,6 @@
 {
   "name": "directory-size-kit",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Computes the total size of regular files in a directory tree by skipping symlinks",
   "type": "module",
   "main": "src/index.js",
